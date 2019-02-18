@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t hyecheon/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run hyecheon/docker-react npm run test -- --coverage
